@@ -2,6 +2,8 @@
 
 Feel free to play with it, make suggestions, pull requests, etc., but keep in mind that it's **not ready for production use**.
 
+**I'm actively working on the API and may need to make breaking changes often.**
+
 # zmq-zap
 
 [ZeroMQ Authentication Protocol](http://rfc.zeromq.org/spec:27) for node.js
@@ -12,6 +14,8 @@ Feel free to play with it, make suggestions, pull requests, etc., but keep in mi
 	
 ## Example
 
+**I've started to build out better examples [here](examples/).**
+
 This is just some code I've been using for testing; it's mostly just a copy of [this](https://github.com/JustinTulloss/zeromq.node/blob/master/examples/rep_req.js) with the ZAP stuff added.
 
 **TODO: Create a better example and actually explain what's going on**
@@ -20,7 +24,7 @@ This example will need:
 
 	$ npm install zmq z85 zmq-zap
 	
-**NOTE: I submitted a [pull request](https://github.com/JustinTulloss/zeromq.node/pull/278) that enables the required socket options for the ZeroMQ 4.x security mechanisms. Until that pull request is merged (or something similar is done) [this repo](https://github.com/msealand/zeromq.node) can be used to get all this working. Also, you must have [libzmq 4.x](http://zeromq.org/intro:get-the-software) installed for any of this to work.**
+**NOTE: I submitted a [pull request](https://github.com/JustinTulloss/zeromq.node/pull/278) that enables the required socket options for the ZeroMQ 4.x security mechanisms. Until that pull request is merged (or something similar is done) [this repo](https://github.com/msealand/zeromq.node) can be used to get all this working. Also, you must have [libzmq 4.x](http://zeromq.org/intro:get-the-software) and [libsodium](https://github.com/jedisct1/libsodium) installed for any of this to work.**
 
 The code below is setup to use the [NULL](http://rfc.zeromq.org/spec:27#toc13) mechanism.  If you want to use the [PLAIN](http://rfc.zeromq.org/spec:27#toc14) or [CURVE](http://rfc.zeromq.org/spec:27#toc15) mechanisms, uncomment the appropriate lines to set the socket options on both client and server sockets.
 
