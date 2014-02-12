@@ -1,18 +1,12 @@
 # Examples
 
-## NULL Mechanism
-
-[null.js](null.js)
-
-A very basic example of using the NULL authentication mechanism with the req-rep pattern.  Until there's a better write up, see the comments in the code.
-
-This example will need zmq installed:
+These example will need zmq installed:
 
 	$ npm install zmq
 	
 **NOTE: I submitted a [pull request](https://github.com/JustinTulloss/zeromq.node/pull/278) that enables the required socket options for the ZeroMQ 4.x security mechanisms. Until that pull request is merged (or something similar is done) [this repo](https://github.com/msealand/zeromq.node) can be used to get all this working. Also, you must have [libzmq 4.x](http://zeromq.org/intro:get-the-software) and [libsodium](https://github.com/jedisct1/libsodium) installed for any of this to work.**
 
-Running the example with debug output on might give a better idea of what's happening:
+Running the examples with debug output on might give a better idea of what's happening:
 
 	$ DEBUG=zmq-zap:* node examples/null.js
 	
@@ -43,4 +37,16 @@ It should output something like:
 	zmq-zap:examples:null rep received hello +1ms
 	zmq-zap:examples:null req received world +0ms
 	zmq-zap:examples:null success! +0ms
+
+
+## NULL Mechanism
+
+A basic example of using the NULL authentication mechanism to authenticate a socket using a domain and address with the req-rep pattern.
+
+[null.js](null.js)
 	
+## PLAIN Mechanism
+
+A basic example of using the PLAIN authentication mechanims to authenticate a socket using a domain, address, username, and password with the req-rep pattern.
+
+[plain.js](plain.js)
