@@ -1,10 +1,6 @@
 # Examples
 
-These example will need zmq installed:
-
-	$ npm install zmq
-	
-**NOTE: I submitted a [pull request](https://github.com/JustinTulloss/zeromq.node/pull/278) that enables the required socket options for the ZeroMQ 4.x security mechanisms. Until that pull request is merged (or something similar is done) [this repo](https://github.com/msealand/zeromq.node) can be used to get all this working. Also, you must have [libzmq 4.x](http://zeromq.org/intro:get-the-software) and [libsodium](https://github.com/jedisct1/libsodium) installed for any of this to work.**
+These examples use ØMQ directly and will need the [prerequisites](../README.md#prerequisites) installed.
 
 Running the examples with debug output on might give a better idea of what's happening:
 
@@ -47,16 +43,12 @@ A basic example of using the NULL authentication mechanism to authenticate a soc
 	
 ## PLAIN Mechanism
 
-A basic example of using the PLAIN authentication mechanims to authenticate a socket using a domain, address, username, and password with the req-rep pattern.
+A basic example of using the PLAIN authentication mechanism to authenticate a socket using a domain, address, username, and password with the req-rep pattern.
 
 [plain.js](plain.js)
 
 ## CURVE Mechanism
 
-This example will also need [z85](https://github.com/msealand/z85.node)
-
-	$ npm install z85
-
-A basic example of using the CURVE authentication mechanims to authenticate a socket using a domain, address, and public key and encrypt the data using [elliptic curve encryption](http://en.wikipedia.org/wiki/Elliptic_curve_cryptography) with the req-rep pattern.
+A basic example of using the CURVE authentication mechanism to authenticate a socket using a domain, address, and public key and encrypt the data using [elliptic curve encryption](http://en.wikipedia.org/wiki/Elliptic_curve_cryptography) with the req-rep pattern.
 
 [curve.js](curve.js)
