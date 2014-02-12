@@ -50,3 +50,13 @@ A basic example of using the NULL authentication mechanism to authenticate a soc
 A basic example of using the PLAIN authentication mechanims to authenticate a socket using a domain, address, username, and password with the req-rep pattern.
 
 [plain.js](plain.js)
+
+## CURVE Mechanism
+
+This example will also need [z85](https://github.com/msealand/z85.node)
+
+	$ npm install z85
+
+A basic example of using the CURVE authentication mechanims to authenticate a socket using a domain, address, and public key and encrypt the data using [elliptic curve encryption](http://en.wikipedia.org/wiki/Elliptic_curve_cryptography) with the req-rep pattern.
+
+[curve.js](curve.js)
