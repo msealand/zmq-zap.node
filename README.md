@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/msealand/zmq-zap.node.png)](https://travis-ci.org/msealand/zmq-zap.node)
+
 # zmq-zap
 
 [ZeroMQ Authentication Protocol (ZAP)](http://rfc.zeromq.org/spec:27) for [node.js](http://nodejs.org)
@@ -28,3 +30,7 @@ See [examples](examples/).
 This may help, but no promises:
 
 	$ DEBUG=zmq-zap:* node ...
+
+## Running Tests
+
+	$ npm test
