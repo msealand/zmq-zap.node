@@ -58,4 +58,31 @@ module.exports = function() {
 			});
 		}).should.not.throw();
 	});
+	it('should respond with an error and response when called with a message with an invalid address', function(done) {
+		(function() {
+			util.zap(util.generateRequest(null, "1.0", "1", null, "abcd"), util.noCallAuthenticator, function(err, res, req) {
+				check.error.invalidMessage(err);
+				check.response.invalidMessage(req, res);
+				done();
+			});
+		}).should.not.throw();
+	});
+	it('should respond with an error and response when called with an undefined mechanism', function(done) {
+		(function() {
+			util.zap(util.generateRequest(null, "1.0", "1", null, "127.0.0.1"), util.noCallAuthenticator, function(err, res, req) {
+				check.error.invalidMessage(err);
+				check.response.invalidMessage(req, res);
+				done();
+			});
+		}).should.not.throw();
+	});
+	it('should respond with an error and response when called with an invalid mechanism', function(done) {
+		(function() {
+			util.zap(util.generateRequest(null, "1.0", "1", null, "127.0.0.1", null, "NOPE"), util.noCallAuthenticator, function(err, res, req) {
+				check.error.noAuthenticator(err);
+				check.response.noAuthenticator(req, res);
+				done();
+			});
+		}).should.not.throw();
+	});
 }

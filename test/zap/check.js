@@ -9,6 +9,11 @@ var error = module.exports.error = {
 		should.exist(err);
 		err.should.be.an.Error;
 		err.message.should.eql('Invalid Message');
+	},
+	noAuthenticator: function(err) {
+		should.exist(err);
+		err.should.be.an.Error;
+		err.message.should.eql('No Authenticator');
 	}
 }
 
@@ -33,6 +38,13 @@ var response = module.exports.response = {
 		res = response.valid(req, res);
 		res.statusCode.should.eql(300);
 		res.message.should.eql("INVALID MESSAGE");
+		res.userId.should.have.length(0);
+		res.metadata.should.have.length(0);
+	},
+	noAuthenticator: function(req, res) {
+		res = response.valid(req, res);
+		res.statusCode.should.eql(500);
+		res.message.should.eql("NO AUTHENTICATOR");
 		res.userId.should.have.length(0);
 		res.metadata.should.have.length(0);
 	}
