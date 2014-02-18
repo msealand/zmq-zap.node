@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/msealand/zmq-zap.node.png)](https://travis-ci.org/msealand/zmq-zap.node)
+[![Coverage Status](https://coveralls.io/repos/msealand/zmq-zap.node/badge.png)](https://coveralls.io/r/msealand/zmq-zap.node)
 
 # zmq-zap
 

@@ -29,7 +29,8 @@
   "homepage": "https://github.com/msealand/zmq-zap.node",
   "devDependencies": {
     "should": "~3.1.2",
-    "mocha": "~1.17.1"
+    "mocha": "~1.17.1",
+    "coveralls": "~2.8.0"
   },
   "dependencies": {
     "z85": "~0.0.1",
