@@ -103,6 +103,15 @@ module.exports = function() {
 			});
 		}).should.not.throw();
 	});
+	it('should respond with an error and 500 response when the authenticator errors (no message)', function(done) {
+		(function() {
+			util.zap(util.generateRequest(null, "1.0", "1", null, "127.0.0.1", null, "TEST"), util.errorAuthenticatorWithNoMessage, null, function(err, res, req) {
+				check.error.general(err);
+				check.response.generalError(req, res);
+				done();
+			});
+		}).should.not.throw();
+	});
 	it('should respond with a 400 response when authentication fails', function(done) {
 		(function() {
 			util.zap(util.generateRequest(null, "1.0", "1", null, "127.0.0.1", null, "TEST"), util.failureAuthenticator, null, function(err, res, req) {
@@ -121,9 +130,18 @@ module.exports = function() {
 			});
 		}).should.not.throw();
 	});
-	it('should respond with a 200 response with a userId when authentication succeeds and returns a userId', function(done) {
+	it('should respond with a 200 response with a userId when authentication succeeds and returns a userId (string)', function(done) {
 		(function() {
-			util.zap(util.generateRequest(null, "1.0", "1", null, "127.0.0.1", null, "TEST"), util.successAuthenticatorWithUserId, null, function(err, res, req) {
+			util.zap(util.generateRequest(null, "1.0", "1", null, "127.0.0.1", null, "TEST"), util.successAuthenticatorWithUserIdString, null, function(err, res, req) {
+				check.error.none(err);
+				check.response.success(req, res, 12345);
+				done();
+			});
+		}).should.not.throw();
+	});
+	it('should respond with a 200 response with a userId when authentication succeeds and returns a userId (number)', function(done) {
+		(function() {
+			util.zap(util.generateRequest(null, "1.0", "1", null, "127.0.0.1", null, "TEST"), util.successAuthenticatorWithNumericUserId, null, function(err, res, req) {
 				check.error.none(err);
 				check.response.success(req, res, 12345);
 				done();

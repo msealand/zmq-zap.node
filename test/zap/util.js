@@ -40,8 +40,12 @@ module.exports.successAuthenticator = function(data, callback) {
 	callback(null, true);
 }
 
-module.exports.successAuthenticatorWithUserId = function(data, callback) {
+module.exports.successAuthenticatorWithNumericUserId = function(data, callback) {
 	callback(null, 12345);
+}
+
+module.exports.successAuthenticatorWithUserIdString = function(data, callback) {
+	callback(null, "12345");
 }
 
 module.exports.failureAuthenticator = function(data, callback) {
@@ -54,6 +58,10 @@ module.exports.noCallAuthenticator = function(data, callback) {
 
 module.exports.errorAuthenticator = function(data, callback) {
 	callback(new Error("Test error"));
+}
+
+module.exports.errorAuthenticatorWithNoMessage = function(data, callback) {
+	callback(new Error());
 }
 
 module.exports.parseResponse = function(data) {
