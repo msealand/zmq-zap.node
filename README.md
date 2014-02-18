@@ -32,6 +32,19 @@ This may help, but no promises:
 
 	$ DEBUG=zmq-zap:* node ...
 
-## Running Tests
+## Running tests
+
+Install dev dependencies:
+
+	$ npm install
+
+Test:
 
 	$ npm test
+
+With code coverage info (using istanbul):
+
+	$ npm install -g istanbul
+	$ make test-cov
+
+_A full code coverage report can be found in coverage/lcov-report/index.html after the tests complete_
