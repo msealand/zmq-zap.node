@@ -1,6 +1,6 @@
 {
   "name": "zmq-zap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ZeroMQ Authentication Protocol",
   "main": "index.js",
   "scripts": {
