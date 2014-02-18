@@ -27,8 +27,24 @@ module.exports.zap = function(message, authenticator, callback) {
 	zap.authenticate(message, callback);
 }
 
+module.exports.successAuthenticator = function(data, callback) {
+	callback(null, true);
+}
+
+module.exports.successAuthenticatorWithUserId = function(data, callback) {
+	callback(null, 12345);
+}
+
+module.exports.failureAuthenticator = function(data, callback) {
+	callback(null, false);
+}
+
 module.exports.noCallAuthenticator = function(data, callback) {
 	throw new Error("TestMechanism.authenticate() should not be called");
+}
+
+module.exports.errorAuthenticator = function(data, callback) {
+	callback(new Error("Test error"));
 }
 
 module.exports.parseResponse = function(data) {
