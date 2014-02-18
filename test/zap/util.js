@@ -18,13 +18,22 @@ module.exports.generateRequest = function(returnPath, version, requestId, domain
 	return req;
 }
 
-module.exports.zap = function(message, authenticator, callback) {
+module.exports.zap = function(message, authenticator, validator, callback) {
 	var zap = new zmqzap.ZAP();
 	zap.use({
 		name: 'TEST',
-		authenticate: authenticator
+		authenticate: authenticator,
+		validate: validator
 	});
 	zap.authenticate(message, callback);
+}
+
+module.exports.validValidator = function(data) {
+	return true;
+}
+
+module.exports.invalidValidator = function(data) {
+	return false;
 }
 
 module.exports.successAuthenticator = function(data, callback) {

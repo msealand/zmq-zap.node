@@ -44,6 +44,11 @@ var response = module.exports.response = {
 		if (userId) res.userId.should.eql(userId);
 		else res.userId.should.have.length(0);
 		res.metadata.should.have.length(0);
+		return res;
+	},
+	successWithReturnPath: function(req, res) {
+		res = response.success(req, res);
+		res.returnPath.should.be.eql([0x32, 0x32, 0x32, 0x32]);
 	},
 	failure: function(req, res) {
 		res = response.valid(req, res);
