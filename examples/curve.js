@@ -6,11 +6,12 @@ var zmq = require('zmq'),
 
 // public / private key pairs used to encrypt the data
 // The clientPublicKey is also used for authentication
-var serverPublicKey = z85.decode('E&ahzm6FilM:*[[7G1Df!cd$}(Z8}=K!>#QwNrnn'),
-	serverPrivateKey = z85.decode('a6*<Em>Zd^a4ENdsGp>MNZ8-PevbUblDfk(9NJA<'),
-	clientPublicKey = z85.decode('(kW)UE2vR%M^!mp9LPJ]3%[o?Y-344U?#LKW8m>('),
-	clientPrivateKey = z85.decode('Gzy#j=-mi{2iCF2vi]N?pketY7+cI*xc8YXRFjH1');
-
+var serverKeypair = zmq.curveKeypair(),
+	clientKeypair = zmq.curveKeypair();
+var serverPublicKey = serverKeypair.public,
+	serverPrivateKey = serverKeypair.secret,
+	clientPublicKey = clientKeypair.public,
+	clientPrivateKey = clientKeypair.secret;
 
 // Requires for ZAP handler
 var zmqzap = require('../'),
@@ -30,7 +31,7 @@ zap.use(new CurveMechanism(function(data, callback) {
 	// For this example, let sockets connect where the "server" is in the "test" domain and the "client"'s address is "127.0.0.1"
 	if ((data.domain == 'test') && (data.address == "127.0.0.1")) {
 		// and where the publickey matches the one we have for the client
-		if (data.publickey == '(kW)UE2vR%M^!mp9LPJ]3%[o?Y-344U?#LKW8m>(') callback(null, true);
+		if (data.publickey == clientPublicKey) callback(null, true);
 		else callback(null, false);
 	}
 	else callback(null, false);
