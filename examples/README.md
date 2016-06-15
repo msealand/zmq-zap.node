@@ -51,4 +51,6 @@ A basic example of using the PLAIN authentication mechanism to authenticate a so
 
 A basic example of using the CURVE authentication mechanism to authenticate a socket using a domain, address, and public key and encrypt the data using [elliptic curve encryption](http://en.wikipedia.org/wiki/Elliptic_curve_cryptography) with the req-rep pattern.
 
+See the source code in the file below for an example of how to generate CurveZMQ keypairs.
+
 [curve.js](curve.js)
